@@ -29,5 +29,11 @@ RUN nix-shell --run "cargo clean --release -p {{cookiecutter.snake_case}}"
 # Remove the stub code
 RUN rm -r src
 
+# Copy in the real code
+COPY src src
+
+# Build/cache the actual project executable
+RUN nix-shell --run "cargo build --release"
+
 # Run the project as the default command
 CMD ["nix-shell", "--run", "cargo run --release"]
