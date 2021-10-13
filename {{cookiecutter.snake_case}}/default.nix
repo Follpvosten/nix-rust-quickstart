@@ -34,7 +34,6 @@ pkgs.rustPlatform.buildRustPackage.override {
     (if inNixShell then [
       # Tools that are only used for development/CI should be listed here
       docker
-      docker-compose
       (with fenix.stable; [
         clippy
         rust-analyzer
