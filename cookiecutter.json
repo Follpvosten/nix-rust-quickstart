@@ -1,0 +1,6 @@
+{
+    "snake_case": "nix_and_rust_example",
+    "title_case": "Nix + Rust example",
+    "short_desc": "An example Rust project using NIx",
+    "initial_author": "Charles Hall <charles@typ3.tech>"
+}

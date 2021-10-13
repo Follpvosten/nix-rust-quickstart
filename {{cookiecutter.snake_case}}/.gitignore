@@ -1,0 +1,8 @@
+# Cargo build artifacts
+/target
+
+# direnv cache
+/.direnv
+
+# Nix build artifiacts
+/result
