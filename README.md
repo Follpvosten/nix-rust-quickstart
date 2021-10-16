@@ -1,4 +1,4 @@
-# Nix + Rust template
+# Nix + Rust Quickstart
 
 ## Overview
 
