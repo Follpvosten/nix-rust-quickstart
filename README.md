@@ -1,12 +1,20 @@
-# Nix + Rust binary crate template
+# Nix + Rust template
 
 ## Overview
 
 A [`cookiecutter`](https://cookiecutter.readthedocs.io/) template for starting
-a binary Rust project using Nix tooling. Note that after generating the template
-project, the `cargoSha256` in `default.nix` will need to be updated by
-attempting a build and, once it fails, copying the new hash back into the file.
-The `README.md` will also need manual intervention.
+a Rust project using Nix tooling.
+
+
+Valid options for `crate_type` are:
+
+* `bin`
+    * `README.md` requires manual intervention post-generation
+    * Note that after generating the template project, the `cargoSha256` in
+      `default.nix` will need to be updated by attempting a build and, once it
+      fails, copying the new hash back into the file.
+* `lib`
+    * `README.md` requires manual intervention post-generation
 
 ## Testing
 

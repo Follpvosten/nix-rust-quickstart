@@ -1,4 +1,5 @@
 {
+    "crate_type": "bin",
     "snake_case": "nix_and_rust_example",
     "title_case": "Nix + Rust example",
     "short_desc": "An example Rust project using Nix",

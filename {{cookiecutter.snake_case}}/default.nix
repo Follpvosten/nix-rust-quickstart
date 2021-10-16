@@ -13,14 +13,20 @@ let
   cargoToml = (builtins.fromTOML (builtins.readFile ./Cargo.toml));
 in
 
+{% if cookiecutter.crate_type == "bin" -%}
 pkgs.rustPlatform.buildRustPackage.override {
   # Use clang instead of GCC since the Rust ecosystem uses clang directly for
   # FFI since bindgen calls it directly instead of using $CC or such
   stdenv = pkgs.clangStdenv;
 } {
+{%- else -%}
+pkgs.clangStdenv.mkDerivation {
+{%- endif %}
   # Set Nix package data based on Cargo.toml
   pname = cargoToml.package.name;
   version = cargoToml.package.version;
+
+{%- if cookiecutter.crate_type == "bin" %}
 
   # Exclude the target directory
   src = builtins.filterSource
@@ -29,6 +35,7 @@ pkgs.rustPlatform.buildRustPackage.override {
 
   # This will need to be updated whenever the cargo dependencies change
   cargoSha256 = "sha256:0hsg1c95713brd7952bbyyljdlihmqp1pjdi9zdj330abm53xgpk";
+{%- endif %}
 
   nativeBuildInputs = with pkgs; [
     (if inNixShell then [

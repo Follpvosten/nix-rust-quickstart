@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+{% if cookiecutter.crate_type == "bin" %}
+rm src/lib.rs
+{% else %}
+rm src/main.rs
+{% endif %}
+
 {% if cookiecutter.snake_case != "nix_and_rust_example" %}
 # Initialize git if it hasn't been already
 if [ ! -d .git ]; then
