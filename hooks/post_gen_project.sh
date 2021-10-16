@@ -6,7 +6,7 @@ rm src/lib.rs
 rm src/main.rs
 {% endif %}
 
-{% if cookiecutter.snake_case != "nix_rust_example" %}
+{% if not cookiecutter.snake_case.startswith("nix_rust_example") %}
 # Initialize git if it hasn't been already
 if [ ! -d .git ]; then
     git init
