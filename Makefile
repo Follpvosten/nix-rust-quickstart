@@ -21,4 +21,4 @@ ci: $(CRATE_TYPES)
 $(CRATE_TYPES):
 	if [ -d nix_rust_example_$@ ]; then rm -rf nix_rust_example_$@; fi
 	cookiecutter --no-input . crate_type=$@ snake_case=nix_rust_example_$@
-	$(MAKE) -C nix_rust_example_$@
+	$(MAKE) -C nix_rust_example_$@ docker_ci

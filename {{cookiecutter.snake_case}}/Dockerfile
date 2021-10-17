@@ -18,6 +18,7 @@ RUN echo "pub struct Placeholder;" > src/lib.rs
 
 # Copy required files for Nix operations
 COPY default.nix .
+COPY shell.nix .
 COPY Cargo.toml .
 {%- if cookiecutter.crate_type == "bin" %}
 COPY Cargo.lock .
@@ -41,10 +42,13 @@ COPY src src
 # Build/cache the actual project executable
 RUN nix-shell --run "cargo build --release"
 
+# Copy in the Makefile
+COPY Makefile .
+
 {% if cookiecutter.crate_type == "bin" -%}
 # Run the project as the default command
 CMD ["nix-shell", "--run", "cargo run --release"]
 {%- else -%}
-# Run the tests as the default command
-CMD ["nix-shell", "--run", "cargo test --release"]
+# Run the CI as the default command
+CMD ["nix-shell", "--run", "make ci"]
 {%- endif %}
