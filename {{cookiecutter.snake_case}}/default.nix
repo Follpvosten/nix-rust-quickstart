@@ -34,7 +34,7 @@ pkgs.clangStdenv.mkDerivation {
     ./.;
 
   # This will need to be updated whenever the cargo dependencies change
-  cargoSha256 = "sha256:0hsg1c95713brd7952bbyyljdlihmqp1pjdi9zdj330abm53xgpk";
+  cargoSha256 = "sha256:0paf3mvgrsd4bg63a5gcvcc1i0cn2wr244jf8wl1bhf15lcgvpf0";
 {%- endif %}
 
   nativeBuildInputs = with pkgs; [

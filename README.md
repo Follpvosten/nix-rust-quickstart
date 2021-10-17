@@ -18,10 +18,9 @@ Valid options for `crate_type` are:
 
 ## Testing
 
-Run `cookiecutter --no-input .` from the root of this repository to generate an
-example project, which can then be tested to see if it works as expected.
-I should probably add this to CI somehow at some point. The `cargoSha256` in the
-template should be the one required by the generated project.
+Running `make` in the root of this repository will generate a project for each
+crate type and then run their respective CI suites. The `cargoSha256` in the
+template should be the one required by the generated `bin` type project.
 
 ## License
 
