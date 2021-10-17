@@ -17,3 +17,9 @@ ci:
 	cargo fmt -- --check
 	cargo clippy -- --deny warnings
 	cargo test --release
+
+.PHONY: clean
+clean:
+	if [ ! -z "$(shell docker images {{cookiecutter.snake_case}} --quiet)" ]; then \
+		docker rmi -f {{cookiecutter.snake_case}}; \
+	fi
