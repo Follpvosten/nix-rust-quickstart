@@ -10,15 +10,12 @@ Please replace this with a real description!
 
 ## Development
 
-This project is developed using Nix, although it isn't strictly required. It
-will, however, significantly help with keeping development environments
-consistent between developers, CI, and so forth. To get started with Nix, follow
-[this guide][nix] to get Nix itself running (if you're not on NixOS), and then
-[this one][nix-direnv] to set up `nix-direnv` (if you're not using NixOS, then
-you'll want to follow the "With nix-env" section's instructions).
+1. Install [Nix][nix] and enable support for [flakes][flakes]
+2. Install [direnv][direnv] and [nix-direnv][nix-direnv]
 
-[nix]: https://nixos.org/guides/install-nix.html
-
+[nix]: https://nixos.org/download.html
+[flakes]: https://nixos.wiki/wiki/Flakes#Installing_flakes
+[direnv]: https://direnv.net/docs/installation.html
 [nix-direnv]: https://github.com/nix-community/nix-direnv#installation
 
 ## License

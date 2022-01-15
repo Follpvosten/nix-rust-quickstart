@@ -9,18 +9,15 @@ a Rust project using Nix tooling.
 Valid options for `crate_type` are:
 
 * `bin`
-    * `README.md` requires manual intervention post-generation
-    * Note that after generating the template project, the `cargoSha256` in
-      `default.nix` will need to be updated by attempting a build and, once it
-      fails, copying the new hash back into the file.
 * `lib`
-    * `README.md` requires manual intervention post-generation
+
+For both of these options, the generated `README.md` will need manual editing
+and `flake.nix` will need its `cargoSha256` updated.
 
 ## Testing
 
-Running `make` in the root of this repository will generate a project for each
-crate type and then run their respective CI suites. The `cargoSha256` in the
-template should be the one required by the generated `bin` type project.
+Run `./bin/ci.sh` and `nix flake check [--print-build-logs]` to ensure things
+build correctly.
 
 ## License
 
