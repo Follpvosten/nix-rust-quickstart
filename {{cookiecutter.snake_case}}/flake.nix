@@ -8,18 +8,20 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    flake-utils,
-    fenix,
-  }: flake-utils.lib.eachDefaultSystem (system:
+  outputs =
+    { self
+    , nixpkgs
+    , flake-utils
+    , fenix
+    ,
+    }: flake-utils.lib.eachDefaultSystem (system:
     let
       pkgs = nixpkgs.legacyPackages.${system};
       lib = pkgs.lib;
       rust = fenix.packages.${system};
       cargoToml = builtins.fromTOML (builtins.readFile ./Cargo.toml);
-    in {
+    in
+    {
       defaultPackage = (pkgs.makeRustPlatform {
         inherit (rust.stable) cargo rustc;
       }).buildRustPackage {
@@ -42,7 +44,7 @@
         # sources, and it can read this environment variable to do so
         RUST_SRC_PATH = "${rust.stable.rust-src}/lib/rustlib/src/rust/library";
 
-        nativeBuildInputs = (old.nativeBuildInputs or []) ++ [
+        nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
           rust.rust-analyzer
           rust.stable.clippy
           rust.stable.rust-src
@@ -50,6 +52,8 @@
 
           pkgs.cargo-outdated
 
+          pkgs.rnix-lsp
+          pkgs.nixpkgs-fmt
           pkgs.docker-compose
           pkgs.jq
         ];
@@ -103,7 +107,7 @@
           # Skip this too since we don't need it
           dontFixup = true;
 
-          nativeBuildInputs = (old.nativeBuildInputs or []) ++ [
+          nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
             self.packages.${system}.scripts
           ];
 
@@ -127,8 +131,8 @@
         cargo-fmt = self.checks.${system}.column-check.overrideAttrs (old: {
           name = "cargo-fmt";
 
-          nativeBuildInputs = (old.nativeBuildInputs or []) ++ [
-           rust.stable.rustfmt
+          nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
+            rust.stable.rustfmt
           ];
 
           buildPhase = ''
@@ -140,7 +144,7 @@
         cargo-clippy = self.checks.${system}.column-check.overrideAttrs (old: {
           name = "cargo-clippy";
 
-          nativeBuildInputs = (old.nativeBuildInputs or []) ++ [
+          nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
             rust.stable.clippy
           ];
 
@@ -149,7 +153,20 @@
             touch $out
           '';
         });
+
+        nixpkgs-fmt = self.checks.${system}.column-check.overrideAttrs (old: {
+          name = "nixpkgs-fmt";
+
+          nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
+            pkgs.nixpkgs-fmt
+          ];
+
+          buildPhase = ''
+            nixpkgs-fmt --check .
+            touch $out
+          '';
+        });
       };
     }
-  );
+    );
 }
