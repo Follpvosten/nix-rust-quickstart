@@ -14,7 +14,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      defaultPackage = pkgs.stdenv.mkDerivation {
+      devShell = pkgs.stdenv.mkDerivation {
         name = "nix-rust-quickstart";
 
         src = ./.;
@@ -23,21 +23,19 @@
           cookiecutter
           git
           ncurses
+          nixpkgs-fmt
           ripgrep
         ];
       };
 
-      devShell = self.defaultPackage.${system}.overrideAttrs (old: {
-        nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
-          pkgs.rnix-lsp
-          pkgs.nixpkgs-fmt
-        ];
-      });
-
       checks = {
-        nixpkgs-fmt = self.defaultPackage.${system}.overrideAttrs (old: {
-          nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
-            pkgs.nixpkgs-fmt
+        nixpkgs-fmt = pkgs.stdenv.mkDerivation {
+          name = "nixpkgs-fmt";
+
+          src = ./.;
+
+          nativeBuildInputs = with pkgs; [
+            nixpkgs-fmt
           ];
 
           dontInstall = true;
@@ -46,7 +44,7 @@
             nixpkgs-fmt --check .
             touch $out
           '';
-        });
+        };
       };
     }
     );
