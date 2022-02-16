@@ -2,6 +2,11 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    flake-compat = {
+      url = "github:edolstra/flake-compat";
+      flake = false;
+    };
+
     fenix = {
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,6 +17,7 @@
     { self
     , nixpkgs
     , flake-utils
+    , flake-compat
     , fenix
     ,
     }: flake-utils.lib.eachDefaultSystem (system:
