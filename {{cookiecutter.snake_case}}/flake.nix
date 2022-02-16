@@ -44,18 +44,13 @@
         # sources, and it can read this environment variable to do so
         RUST_SRC_PATH = "${rust.stable.rust-src}/lib/rustlib/src/rust/library";
 
-        nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
-          rust.rust-analyzer
+        nativeBuildInputs = with pkgs; (old.nativeBuildInputs or [ ]) ++ [
+          pkgs.cargo-outdated
           rust.stable.clippy
           rust.stable.rust-src
           rust.stable.rustfmt
 
-          pkgs.cargo-outdated
-
-          pkgs.rnix-lsp
           pkgs.nixpkgs-fmt
-          pkgs.docker-compose
-          pkgs.jq
         ];
       });
 
