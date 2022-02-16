@@ -51,12 +51,12 @@
         RUST_SRC_PATH = "${rust.stable.rust-src}/lib/rustlib/src/rust/library";
 
         nativeBuildInputs = with pkgs; (old.nativeBuildInputs or [ ]) ++ [
-          pkgs.cargo-outdated
+          cargo-outdated
           rust.stable.clippy
           rust.stable.rust-src
           rust.latest.rustfmt
 
-          pkgs.nixpkgs-fmt
+          nixpkgs-fmt
 
           # Needed for `./bin/ci.sh`
           ncurses
