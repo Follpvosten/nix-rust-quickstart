@@ -41,7 +41,7 @@
           (path: type: !(type == "directory" && baseNameOf path == "target"))
           ./.;
 
-        # You can do this manually and with more checks via `nix flake check`
+        # This is disabled so CI can be impure and not break Nix builds
         doCheck = false;
       };
 
