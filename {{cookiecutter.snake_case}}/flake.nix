@@ -57,6 +57,13 @@
           rust.latest.rustfmt
 
           pkgs.nixpkgs-fmt
+
+          # Needed for `./bin/ci.sh`
+          ncurses
+
+          # Needed for `./bin/column-check.sh`
+          ripgrep
+          fd
         ];
       });
 

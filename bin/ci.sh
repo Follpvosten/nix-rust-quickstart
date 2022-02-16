@@ -31,7 +31,12 @@ for t in "${!real_sha256[@]}"; do
     nix flake check --print-build-logs
 
     # Run the actual tests
-    nix develop --command ./bin/ci.sh
+    nix develop \
+        --ignore-environment \
+        --keep TERM \
+        --keep COLUMNS \
+        --command \
+        ./bin/ci.sh
 
     popd || exit
 done
