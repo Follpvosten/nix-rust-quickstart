@@ -2,15 +2,33 @@
 
 set -euo pipefail
 
+color() {
+    if [[ "${2:-}" == "last" ]]; then
+        tput setaf 2
+    elif [[ "${2:-}" == "error" ]]; then
+        tput setaf 1
+    else
+        tput setaf "$1"
+    fi
+}
+
+h_line() {
+    color 4 "${1:-}"
+    printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | sed 's/ /═/g'
+    tput sgr0
+}
+
 banner() {
     if [[ "${2:-}" != "first" && "${2:-}" != "last" ]]; then echo; fi
-    printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | sed 's/ /═/g'
+    h_line "${2:-}"
     printf \
         '%*s' \
         "$(( ( ${COLUMNS:-$(tput cols)} - ${#1} ) / 2))" \
         ''
+    color 6 "${2:-}"
     echo "$1"
-    printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | sed 's/ /═/g'
+    tput sgr0
+    h_line "${2:-}"
     if [[ "${2:-}" != "last" && "${2:-}" != "error" ]]; then echo; fi
 }
 
