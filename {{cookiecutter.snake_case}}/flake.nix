@@ -48,7 +48,7 @@
           pkgs.cargo-outdated
           rust.stable.clippy
           rust.stable.rust-src
-          rust.stable.rustfmt
+          rust.latest.rustfmt
 
           pkgs.nixpkgs-fmt
         ];
