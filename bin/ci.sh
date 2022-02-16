@@ -27,8 +27,11 @@ for t in "${!real_sha256[@]}"; do
     # Flakes require everything to be at least staged
     git add -A
 
-    # Run the tests of the generated configuration
+    # Make sure the flakes aren't broken
     nix flake check --print-build-logs
+
+    # Run the actual tests
+    nix develop --command ./bin/ci.sh
 
     popd || exit
 done
