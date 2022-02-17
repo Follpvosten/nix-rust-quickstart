@@ -2,6 +2,7 @@
 cargo_generate_version = "0.12"
 ignore = [
     # Files for which there exists one each for the real and generated projects
+    "README.md",
     "bin/ci.sh",
     "flake.lock",
     "flake.nix",
