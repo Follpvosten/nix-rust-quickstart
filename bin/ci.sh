@@ -2,8 +2,7 @@
 
 set -euo pipefail
 
-rm -rf target
-mkdir -p target
+REPO_ROOT="$(git rev-parse --show-toplevel)"
 
 declare -A real_sha256
 
@@ -12,22 +11,21 @@ real_sha256=( \
     ["bin"]="\"sha256-eJv5rwDjTOX/J+hziefMaFlZddZOgxSbpcL1llqy/3s=\"" \
 )
 
-pushd target || exit
-
 for t in "${!real_sha256[@]}"; do 
-    # Generate this particular configuration
-    cookiecutter --no-input .. crate_type=$t snake_case=$t
+    pushd "$(mktemp -d --suffix ".$(basename "$REPO_ROOT")")" || exit
 
-    # Change directories into it
-    pushd $t || exit
+    # Generate this particular configuration
+    cargo-generate generate \
+        --init \
+        --path "$REPO_ROOT" \
+        --name $t \
+        --$t \
+        --template-values-file "$REPO_ROOT/test-values.toml"
 
     # Swap the fake sha256 for one that will actually build
-    sed -i "s#lib.fakeSha256#${real_sha256[$t]}#" flake.nix
+    sed -i "s#pkgs.lib.fakeSha256#${real_sha256[$t]}#" flake.nix
 
-    # Flakes require everything to be at least staged
-    git add -A
-
-    # Make sure the flakes aren't broken
+    # Ensure the flake isn't broken
     nix flake check --print-build-logs
 
     # Run the actual tests
@@ -40,5 +38,3 @@ for t in "${!real_sha256[@]}"; do
 
     popd || exit
 done
-
-popd || exit

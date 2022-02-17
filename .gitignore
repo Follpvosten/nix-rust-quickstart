@@ -1,9 +1,1 @@
-/nix_rust_example*
 /.direnv
-/target
-
-# Ignore flake.lock files
-flake.lock
-
-# Except the real one
-!/flake.lock

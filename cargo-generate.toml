@@ -1,0 +1,32 @@
+[template]
+cargo_generate_version = "0.12"
+ignore = [
+    # Files for which there exists one each for the real and generated projects
+    "bin/ci.sh",
+    "flake.lock",
+    "flake.nix",
+
+    # Files for the real project that shouldn't make it into generated projects
+    "test-values.toml",
+    "LICENSE-APACHE",
+    "LICENSE-MIT",
+
+    # Files in `.gitignore`
+    ".direnv",
+    ".git",
+]
+
+[hooks]
+post = [
+    "post.rhai",
+]
+
+[placeholders.short_description]
+type = "string"
+prompt = "Short description"
+
+[conditional.'crate_type == "lib"']
+ignore = [ "src/main.rs" ]
+
+[conditional.'crate_type == "bin"']
+ignore = [ "src/lib.rs" ]

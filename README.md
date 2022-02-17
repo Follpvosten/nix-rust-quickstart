@@ -1,32 +1,36 @@
-# Nix + Rust Quickstart
+# Nix + Rust quickstart
 
-## Overview
+A `cargo generate` template for starting a Rust project developed with Nix
 
-A [`cookiecutter`](https://cookiecutter.readthedocs.io/) template for starting
-a Rust project using Nix tooling.
+---
 
+## Development
 
-Valid options for `crate_type` are:
+### Requirements
 
-* `bin`
-* `lib`
+1. Install [Nix][nix] and enable support for [flakes][flakes]
+2. Install [direnv][direnv] and [nix-direnv][nix-direnv]
 
-For both of these options, the generated `README.md` will need manual editing
-and `flake.nix` will need its `cargoSha256` updated.
+[nix]: https://nixos.org/download.html
+[flakes]: https://nixos.wiki/wiki/Flakes#Installing_flakes
+[direnv]: https://direnv.net/docs/installation.html
+[nix-direnv]: https://github.com/nix-community/nix-direnv#installation
 
-## Testing
+## Licensing
 
-Run `./bin/ci.sh` and `nix flake check [--print-build-logs]` to ensure things
-build correctly.
-
-## License
+### This project
 
 This project is licensed under either of
 
-* Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or
+* Apache License Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or
   <http://www.apache.org/licenses/LICENSE-2.0>)
 
 * MIT license ([LICENSE-MIT](LICENSE-MIT) or
   <http://opensource.org/licenses/MIT>)
 
 at your option.
+
+### Generated projects
+
+Whoever uses this template to generate a project holds copyright over the
+project they generated and is free to choose its license(s).

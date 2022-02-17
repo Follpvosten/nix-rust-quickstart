@@ -20,7 +20,7 @@
         src = ./.;
 
         nativeBuildInputs = with pkgs; [
-          cookiecutter
+          cargo-generate
           git
           ncurses
           nixpkgs-fmt

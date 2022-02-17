@@ -23,7 +23,6 @@
     }: flake-utils.lib.eachDefaultSystem (system:
     let
       pkgs = nixpkgs.legacyPackages.${system};
-      lib = pkgs.lib;
       rust = fenix.packages.${system};
       cargoToml = builtins.fromTOML (builtins.readFile ./Cargo.toml);
     in
@@ -34,7 +33,7 @@
         pname = cargoToml.package.name;
         version = cargoToml.package.version;
 
-        cargoSha256 = lib.fakeSha256;
+        cargoSha256 = pkgs.lib.fakeSha256;
 
         src = builtins.filterSource
           # Exclude `target` because it's huge
