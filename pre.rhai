@@ -5,14 +5,14 @@
 // them out for other licenses.
 let license = switch variable::get("crate_type") {
     "bin" => {
-        file::delete("LICENSE-MIT");
-        file::delete("LICENSE-APACHE");
+        file::delete("LICENSE-MIT.md");
+        file::delete("LICENSE-Apache-2.0.md");
 
         "AGPL-3.0-only"
     }
 
     "lib" => {
-        file::delete("LICENSE-AGPL");
+        file::delete("LICENSE-AGPL-3.0-only.md");
 
         "MIT OR Apache-2.0"
     }

@@ -22,13 +22,13 @@ A `cargo generate` template for starting a Rust project developed with Nix
 
 This project is licensed under either of
 
-* `Apache-2.0` ([LICENSE-APACHE](LICENSE-APACHE) or
-  <http://www.apache.org/licenses/LICENSE-2.0>)
+* `Apache-2.0` ([file](LICENSE-Apache-2.0.md) or
+  [online](http://www.apache.org/licenses/LICENSE-2.0))
 
-* `MIT` ([LICENSE-MIT](LICENSE-MIT) or <http://opensource.org/licenses/MIT>)
+* `MIT` ([file](LICENSE-MIT.md) or [online](http://opensource.org/licenses/MIT))
 
-at your option. The `LICENSE-AGPL` file does not apply to this project, its
-inclusion is solely for generated projects (if they desire it).
+at your option. The `LICENSE-AGPL-3.0-only.md` file does not apply to this
+project, its inclusion is solely for generated projects (if they desire it).
 
 ### Generated projects
 
