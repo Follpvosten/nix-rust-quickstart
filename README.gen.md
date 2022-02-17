@@ -22,14 +22,15 @@
 This project is licensed under either of
 
 * `Apache-2.0` ([file](LICENSE-Apache-2.0.md) or
-  [online](http://www.apache.org/licenses/LICENSE-2.0))
+  [online](https://opensource.org/licenses/Apache-2.0))
 
-* `MIT` ([file](LICENSE-MIT.md) or [online](http://opensource.org/licenses/MIT))
+* `MIT` ([file](LICENSE-MIT.md) or
+  [online](https://opensource.org/licenses/MIT))
 
 at your option.
 
 {%- elsif license == "AGPL-3.0-only" -%}
 
 This project is licensed under `AGPL-3.0-only` ([file](LICENSE-AGPL-3.0-only.md)
-or [online](https://www.gnu.org/licenses/agpl-3.0.en.html)).
+or [online](https://opensource.org/licenses/AGPL-3.0)).
 {%- endif %}
