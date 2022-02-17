@@ -4,6 +4,15 @@ A `cargo generate` template for starting a Rust project developed with Nix
 
 ---
 
+## Usage
+
+Refer to [`cargo-generate`][cgu]'s documentation. If you find installing `cargo`
+globally undesirable, take a look at [this derivation][cargo-shim].
+
+[cgu]: https://github.com/cargo-generate/cargo-generate#usage
+
+[cargo-shim]: https://or.computer.surgery/charles/nur/-/tree/main/pkgs/cargo-shim
+
 ## Development
 
 ### Requirements
