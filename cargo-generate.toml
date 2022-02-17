@@ -7,9 +7,6 @@ ignore = [
     "flake.lock",
     "flake.nix",
 
-    # Files for the real project that shouldn't make it into generated projects
-    "test-values.toml",
-
     # Files in `.gitignore`
     ".direnv",
     ".git",

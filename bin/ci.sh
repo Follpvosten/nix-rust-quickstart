@@ -19,8 +19,8 @@ for t in "${!real_sha256[@]}"; do
         --init \
         --path "$REPO_ROOT" \
         --name $t \
-        --$t \
-        --template-values-file "$REPO_ROOT/test-values.toml"
+        --define "short_description=Nix + Rust quickstart CI project" \
+        --$t
 
     # Swap the fake sha256 for one that will actually build
     sed -i "s#pkgs.lib.fakeSha256#${real_sha256[$t]}#" flake.nix
