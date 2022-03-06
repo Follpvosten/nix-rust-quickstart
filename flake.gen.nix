@@ -8,7 +8,8 @@
     };
 
     fenix = {
-      url = "github:nix-community/fenix";
+      # https://github.com/nix-community/fenix/issues/70
+      url = "github:nix-community/fenix?rev=a372f826fbc2148fe6fac619c2ff93fd89e9896b";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
