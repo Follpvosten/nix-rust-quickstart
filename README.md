@@ -15,10 +15,9 @@ globally undesirable, take a look at [this derivation][cargo-shim].
 
 ## Development
 
-### Requirements
-
 1. Install [Nix][nix] and enable support for [flakes][flakes]
 2. Install [direnv][direnv] and [nix-direnv][nix-direnv]
+3. Run `./bin/ci.sh` before committing/pushing
 
 [nix]: https://nixos.org/download.html
 [flakes]: https://nixos.wiki/wiki/Flakes#Installing_flakes
