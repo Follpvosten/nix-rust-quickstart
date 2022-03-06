@@ -50,7 +50,6 @@ nixpkgs-fmt --version 2>&1 | head -n1 || true
 cargo outdated -R
 
 banner "Linting"
-./bin/column-check.sh
 nixpkgs-fmt --check .
 cargo fmt -- --check
 cargo clippy -- -D warnings
