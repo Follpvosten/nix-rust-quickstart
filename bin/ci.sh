@@ -7,8 +7,8 @@ REPO_ROOT="$(git rev-parse --show-toplevel)"
 declare -A real_sha256
 
 real_sha256=( \
-    ["lib"]="\"sha256-lhuHLod82wRvIpeXVrcx1gWxg4MJT64M06aucxf4Sqc=\"" \
-    ["bin"]="\"sha256-eJv5rwDjTOX/J+hziefMaFlZddZOgxSbpcL1llqy/3s=\"" \
+    ["lib"]="\"sha256-9gUtC39KJkrjmSN34mAVGLLC7eiPk/YkZfFt35sMxCk=\"" \
+    ["bin"]="\"sha256-wIdxIdegNDgtKYD/aik4tqclVCRwZWkZymYGn2HOem8=\"" \
 )
 
 for t in "${!real_sha256[@]}"; do 
