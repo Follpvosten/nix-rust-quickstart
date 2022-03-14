@@ -6,12 +6,33 @@ A `cargo generate` template for starting a Rust project developed with Nix
 
 ## Usage
 
-Refer to [`cargo-generate`][cgu]'s documentation. If you find installing `cargo`
-globally undesirable, take a look at [this derivation][cargo-shim].
+### Set-up
 
-[cgu]: https://github.com/cargo-generate/cargo-generate#usage
+1. Install [`cargo`][cargo] (or [`cargo-shim`][cargo-shim] if you don't want to
+   install real cargo)
 
-[cargo-shim]: https://or.computer.surgery/charles/nur/-/tree/main/pkgs/cargo-shim
+2. Install [`cargo-generate`][cargo-generate]
+
+3. Add the following to your [`$CARGO_HOME/cargo-generate.toml`][cargo-home]:
+
+    ```toml
+    [favorites.nix]
+    git = "https://or.computer.surgery/charles/nix_rust_quickstart"
+    branch = "main"
+    ```
+
+[cargo-home]: https://doc.rust-lang.org/cargo/guide/cargo-home.html
+
+[cargo-generate]: https://cargo-generate.github.io/cargo-generate/installation.html
+
+[cargo]: https://doc.rust-lang.org/cargo/getting-started/installation.html
+
+[cargo-shim]: https://or.computer.surgery/charles/cargo-shim
+
+### Generating a project
+
+1. Run `cargo generate nix` (add `--lib` if you're making a library) and follow
+   the prompts
 
 ## Development
 
