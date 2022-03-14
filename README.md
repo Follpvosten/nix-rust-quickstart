@@ -17,7 +17,7 @@ A `cargo generate` template for starting a Rust project developed with Nix
 
     ```toml
     [favorites.nix]
-    git = "https://or.computer.surgery/charles/nix_rust_quickstart"
+    git = "https://or.computer.surgery/charles/nix-rust-quickstart"
     branch = "main"
     ```
 
