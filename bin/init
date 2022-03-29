@@ -30,6 +30,10 @@ cleanup() {
 }
 trap 'status=$?; cleanup; exit $status' EXIT
 
+if ! git rev-parse --is-inside-work-tree &> /dev/null; then
+    git init
+fi
+
 # Make Nix recognize the files
 git add -A
 

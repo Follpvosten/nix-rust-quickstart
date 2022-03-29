@@ -24,7 +24,6 @@ for t in "${crate_types[@]}"; do
         --$t
 
     # Test the init script
-    git init
     ./bin/init
     if [[ -n "$(git status --short)" ]]; then
         # Assert that there's no uncommitted changes
