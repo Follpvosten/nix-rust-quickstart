@@ -23,6 +23,14 @@ for t in "${crate_types[@]}"; do
         --define "short_description=$CRATE_NAME CI project" \
         --$t
 
+    # Test the init script
+    git init
+    ./bin/init
+    if [[ -n "$(git status --short)" ]]; then
+        # Assert that there's no uncommitted changes
+        exit 1
+    fi
+
     # Ensure the flake isn't broken
     nix flake check --print-build-logs
 

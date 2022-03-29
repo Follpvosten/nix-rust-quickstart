@@ -41,7 +41,7 @@ A `cargo generate` template for starting a Rust project developed with Nix
 2. Follow the instructions in the "Development requirements" section in the
    `CONTRIBUTING.md` file in that folder if you haven't already
 
-3. `git add -A && git commit -m "initial commit" && direnv allow`
+3. Read and then run `./bin/init`
 
 4. Develop your new Rust project with Nix!
 
