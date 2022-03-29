@@ -28,7 +28,7 @@
       cargoToml = builtins.fromTOML (builtins.readFile ./Cargo.toml);
     in
     {
-      defaultPackage = (pkgs.makeRustPlatform {
+      packages.default = (pkgs.makeRustPlatform {
         inherit (rust.stable) cargo rustc;
       }).buildRustPackage {
         pname = cargoToml.package.name;
@@ -45,7 +45,7 @@
         doCheck = false;
       };
 
-      devShell = self.defaultPackage.${system}.overrideAttrs (old: {
+      devShells.default = self.packages.${system}.default.overrideAttrs (old: {
         # Rust Analyzer needs to be able to find the path to default crate
         # sources, and it can read this environment variable to do so
         RUST_SRC_PATH = "${rust.stable.rust-src}/lib/rustlib/src/rust/library";
@@ -64,8 +64,8 @@
       });
 
       checks = {
-        defaultPackage = self.defaultPackage.${system};
-        devShell = self.devShell.${system};
+        packagesDefault = self.packages.${system}.default;
+        devShellsDefault = self.devShells.${system}.default;
       };
     }
     );
