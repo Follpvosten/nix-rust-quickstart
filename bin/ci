@@ -32,18 +32,10 @@ for t in "${crate_types[@]}"; do
     fi
 
     # Ensure the flake isn't broken
-    nix flake check --print-build-logs
+    direnv exec . nix flake check --print-build-logs
 
     # Run the actual tests
-    #
-    # We have to call `./bin/ci` instead of just `ci` because we're not using
-    # `direnv` in this context.
-    nix develop \
-        --ignore-environment \
-        --keep TERM \
-        --keep COLUMNS \
-        --command \
-        ./bin/ci
+    direnv exec . ci
 
     popd || exit
 done
