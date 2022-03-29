@@ -34,7 +34,7 @@
         pname = cargoToml.package.name;
         version = cargoToml.package.version;
 
-        cargoSha256 = pkgs.lib.fakeSha256;
+        cargoLock.lockFile = ./Cargo.lock;
 
         src = builtins.filterSource
           # Exclude `target` because it's huge

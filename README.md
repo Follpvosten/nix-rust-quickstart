@@ -41,29 +41,9 @@ A `cargo generate` template for starting a Rust project developed with Nix
 2. Follow the instructions in the "Development requirements" section in the
    `CONTRIBUTING.md` file in that folder if you haven't already
 
-3. `git add -A && direnv allow`
+3. `git add -A && git commit -m "initial commit" && direnv allow`
 
-4. Nix will complain about `cargoSha256` being out of date:
-
-   ```text
-   error: hash mismatch in fixed-output derivation '/nix/store/kd2m0pa3dq6rvr3fmxk2h1n418nkzyz0-example_project-0.1.0-vendor.tar.gz.drv':
-         specified: sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
-            got:    sha256-C1f5r+Kl44YjVB60LqH1VpfVQJl7QxjDMo0QyNmtnAM=
-   ```
-
-   Fix this by copying the value after `got:` and setting it in `flake.nix` like
-   so:
-
-   ```nix
-   cargoSha256 = "sha256-C1f5r+Kl44YjVB60LqH1VpfVQJl7QxjDMo0QyNmtnAM=";
-   ```
-
-5. direnv should automatically reload after detecting changes to `flake.nix`,
-   but if it doesn't, run `direnv reload` to trigger it manually
-
-6. `git add -A && git commit -m "initial commit"`
-
-7. Develop your new Rust project with Nix!
+4. Develop your new Rust project with Nix!
 
 ## Development
 
