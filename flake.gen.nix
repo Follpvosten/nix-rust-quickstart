@@ -58,7 +58,7 @@
 
           nixpkgs-fmt
 
-          # Needed for `./bin/ci.sh`
+          # Needed for `./bin/ci`
           ncurses
         ];
       });

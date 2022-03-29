@@ -1,6 +1,6 @@
 file::rename(".gen.gitignore", ".gitignore");
 file::rename("README.gen.md", "README.md");
-file::rename("bin/ci.gen.sh", "bin/ci.sh");
+file::rename("bin/ci.gen", "bin/ci");
 file::rename("flake.gen.nix", "flake.nix");
 
 print("Note: if using git, flake-related files must be at least staged");
