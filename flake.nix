@@ -14,38 +14,16 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      devShell = pkgs.stdenv.mkDerivation {
+      devShells.default = pkgs.mkShell {
         name = "nix-rust-quickstart";
-
-        src = ./.;
 
         nativeBuildInputs = with pkgs; [
           cargo-generate
-          git
-          ncurses
-          nixpkgs-fmt
-          ripgrep
         ];
       };
 
       checks = {
-        nixpkgs-fmt = pkgs.stdenv.mkDerivation {
-          name = "nixpkgs-fmt";
-
-          src = ./.;
-
-          nativeBuildInputs = with pkgs; [
-            nixpkgs-fmt
-          ];
-
-          dontInstall = true;
-
-          buildPhase = ''
-            nixpkgs-fmt --check .
-            touch $out
-          '';
-        };
+        devShellsDefault = self.devShells.${system}.default;
       };
-    }
-    );
+    });
 }
