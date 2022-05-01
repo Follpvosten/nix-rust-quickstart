@@ -2,10 +2,6 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    flake-compat = {
-      url = "github:edolstra/flake-compat";
-      flake = false;
-    };
 
     fenix = {
       # https://github.com/nix-community/fenix/issues/70
@@ -18,9 +14,8 @@
     { self
     , nixpkgs
     , flake-utils
-    , flake-compat
+
     , fenix
-    ,
     }: flake-utils.lib.eachDefaultSystem (system:
     let
       pkgs = nixpkgs.legacyPackages.${system};
