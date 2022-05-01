@@ -4,8 +4,7 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     fenix = {
-      # https://github.com/nix-community/fenix/issues/70
-      url = "github:nix-community/fenix?rev=a372f826fbc2148fe6fac619c2ff93fd89e9896b";
+      url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
