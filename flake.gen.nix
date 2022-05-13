@@ -53,7 +53,10 @@
           nixpkgs-fmt
 
           # Needed for `./bin/ci`
+          file
           ncurses
+          shellcheck
+          shfmt
         ];
       });
 
