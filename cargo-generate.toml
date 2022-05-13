@@ -13,9 +13,6 @@ ignore = [
 ]
 
 [hooks]
-pre = [
-    "pre.rhai",
-]
 post = [
     "post.rhai",
 ]

@@ -68,12 +68,11 @@ This project is licensed under either of
 * `MIT` ([file](LICENSE-MIT.md) or
   [online](https://opensource.org/licenses/MIT))
 
-at your option. The `LICENSE-AGPL-3.0-only.md` file does not apply to this
-project, its inclusion is solely for generated projects (if they desire it).
+at your option.
 
 ### Generated projects
 
-The default licenses for generated projects are `MIT OR Apache-2.0` for library
-crates and `AGPL-3.0-only` for binary crates. However, these are just defaults.
-Whoever uses this template to generate a project holds copyright over the
-project they generated and is free to choose its license(s).
+The default licensing for generated projects is `MIT OR Apache-2.0`. However,
+these are just defaults. Whoever uses this template to generate a project holds
+copyright over the project they generated and is free to choose how it is
+licensed.
