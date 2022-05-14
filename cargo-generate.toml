@@ -4,7 +4,10 @@
 cargo_generate_version = ">=0.12"
 
 ignore = [
+    ".direnv",
     ".git",
+    ".gitignore",
+    ".gitlab-ci.yml",
     "README.md",
     "bin/ci",
     "flake.lock",
