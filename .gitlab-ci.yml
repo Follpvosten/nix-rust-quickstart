@@ -6,7 +6,7 @@ stages:
 before_script:
   # Make output of various things pretty
   - "export COLUMNS=80"
-  - "export TERM=xterm-256color"
+  - "export TERM=ansi"
   - "export CARGO_TERM_COLOR=always"
 
   # Enable flakes
