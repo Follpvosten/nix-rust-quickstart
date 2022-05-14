@@ -1,15 +1,11 @@
 [template]
 cargo_generate_version = "0.12"
 ignore = [
-    # Files for which there exists one each for the real and generated projects
+    ".git",
     "README.md",
     "bin/ci",
     "flake.lock",
     "flake.nix",
-
-    # Files in `.gitignore`
-    ".direnv",
-    ".git",
 ]
 
 [hooks]
