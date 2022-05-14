@@ -46,15 +46,12 @@
 
         nativeBuildInputs = with pkgs; (old.nativeBuildInputs or [ ]) ++ [
           cargo-outdated
-          rust.stable.clippy
-          rust.stable.rust-src
-          rust.latest.rustfmt
-
-          nixpkgs-fmt
-
-          # Needed for `./bin/ci`
           file
           ncurses
+          nixpkgs-fmt
+          rust.latest.rustfmt
+          rust.stable.clippy
+          rust.stable.rust-src
           shellcheck
           shfmt
         ];
