@@ -19,6 +19,9 @@
 
         nativeBuildInputs = with pkgs; [
           cargo-generate
+          file
+          shellcheck
+          shfmt
         ];
       };
 

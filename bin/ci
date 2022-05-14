@@ -2,6 +2,12 @@
 
 set -euo pipefail
 
+shfmt -d -i 4 .
+find . -type f -exec file --mime-type {} \; |
+    grep 'text/x-shellscript' |
+    cut -d: -f1 |
+    xargs shellcheck
+
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 REPO_NAME="$(basename "$REPO_ROOT")"
 
@@ -21,7 +27,7 @@ for t in "${crate_types[@]}"; do
         --path "$REPO_ROOT" \
         --name "$CRATE_NAME" \
         --define "short_description=$CRATE_NAME CI project" \
-        --$t
+        --"$t"
 
     # Test the init script
     ./bin/init
