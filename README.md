@@ -35,10 +35,11 @@ A `cargo generate` template for starting a Rust project developed with Nix
 
 1. `cd <generated-project-folder>`
 
-2. Follow the instructions in the "Development requirements" section in the
-   `CONTRIBUTING.md` file in that folder if you haven't already
+2. Follow the instructions in the [**Development requirements** section in
+   `CONTRIBUTING.md`](./CONTRIBUTING.md#development-requirements) if you haven't
+   already
 
-3. Read and then run `./bin/init`
+3. Read and then run [`./bin/init`](./bin/init)
 
 4. Develop your new Rust project with Nix!
 
