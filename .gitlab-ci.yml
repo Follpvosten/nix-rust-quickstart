@@ -3,12 +3,13 @@ image: nixos/nix:2.8.0
 stages:
   - ci
 
-before_script:
+variables:
   # Make output of various things pretty
-  - "export COLUMNS=80"
-  - "export TERM=ansi"
-  - "export CARGO_TERM_COLOR=always"
+  COLUMNS: "80"
+  TERM: "ansi"
+  CARGO_TERM_COLOR: "always"
 
+before_script:
   # Enable flakes
   - "echo 'experimental-features = nix-command flakes' >> /etc/nix/nix.conf"
 
