@@ -6,7 +6,7 @@ A `cargo generate` template for starting a Rust project developed with Nix
 
 ## Usage
 
-### Set-up
+### Setup
 
 1. Install [`cargo`][cargo] (or [`cargo-shim`][cargo-shim] if you don't want to
    install real cargo)
