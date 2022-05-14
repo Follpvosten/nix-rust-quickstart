@@ -20,6 +20,7 @@
         nativeBuildInputs = (with pkgs; [
           cargo-generate
           file
+          ncurses
           nixpkgs-fmt
           shellcheck
           shfmt
