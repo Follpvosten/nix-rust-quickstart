@@ -44,17 +44,20 @@
         # sources, and it can read this environment variable to do so
         RUST_SRC_PATH = "${rust.stable.rust-src}/lib/rustlib/src/rust/library";
 
-        nativeBuildInputs = with pkgs; (old.nativeBuildInputs or [ ]) ++ [
+        nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ (with pkgs; [
           cargo-outdated
           file
           ncurses
           nixpkgs-fmt
-          rust.latest.rustfmt
-          rust.stable.clippy
-          rust.stable.rust-src
           shellcheck
           shfmt
-        ];
+        ]) ++ (with rust; [
+          latest.rustfmt
+          stable.clippy
+          stable.rust-src
+        ]) ++ (with pkgs.nodePackages; [
+          markdownlint-cli
+        ]);
       });
 
       checks = {

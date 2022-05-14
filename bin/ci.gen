@@ -54,9 +54,13 @@ shfmt -version
 echo -n "shellcheck "
 shellcheck --version | grep version: | cut -f2 -d' '
 
+echo -n "markdownlint "
+markdownlint --version
+
 cargo outdated -R
 
 banner "Linting"
+markdownlint .
 shfmt -d -i 4 .
 find . -type f -exec file --mime-type {} \; |
     grep 'text/x-shellscript' |

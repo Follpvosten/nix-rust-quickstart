@@ -17,13 +17,15 @@
       devShells.default = pkgs.mkShell {
         name = "nix-rust-quickstart";
 
-        nativeBuildInputs = with pkgs; [
+        nativeBuildInputs = (with pkgs; [
           cargo-generate
           file
           nixpkgs-fmt
           shellcheck
           shfmt
-        ];
+        ]) ++ (with pkgs.nodePackages; [
+          markdownlint-cli
+        ]);
       };
 
       checks = {
