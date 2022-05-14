@@ -1,5 +1,8 @@
 [template]
-cargo_generate_version = "0.12"
+
+# Examples: https://docs.rs/semver/latest/semver/enum.Op.html
+cargo_generate_version = ">=0.12"
+
 ignore = [
     ".git",
     "README.md",
