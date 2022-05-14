@@ -2,6 +2,55 @@
 
 set -euo pipefail
 
+color() {
+    if [[ "${2:-}" == "last" ]]; then
+        tput setaf 2
+    elif [[ "${2:-}" == "error" ]]; then
+        tput setaf 1
+    else
+        tput setaf "$1"
+    fi
+}
+
+h_line() {
+    color 4 "${1:-}"
+    printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | sed 's/ /═/g'
+    tput sgr0
+}
+
+banner() {
+    if [[ "${2:-}" != "first" && "${2:-}" != "last" ]]; then echo; fi
+    h_line "${2:-}"
+    printf \
+        '%*s' \
+        "$(((${COLUMNS:-$(tput cols)} - ${#1}) / 2))" \
+        ''
+    color 6 "${2:-}"
+    echo "$1"
+    tput sgr0
+    h_line "${2:-}"
+    if [[ "${2:-}" != "last" && "${2:-}" != "error" ]]; then echo; fi
+}
+
+failure() {
+    if [[ $? -ne 0 ]]; then
+        banner "Failure" error
+    fi
+}
+
+trap failure EXIT
+
+banner "Versions" first
+nixpkgs-fmt --version 2>&1 | head -n1 || true
+
+echo -n "shfmt "
+shfmt -version
+
+echo -n "shellcheck "
+shellcheck --version | grep version: | cut -f2 -d' '
+
+banner "Linting"
+nixpkgs-fmt --check .
 shfmt -d -i 4 .
 find . -type f -exec file --mime-type {} \; |
     grep 'text/x-shellscript' |
@@ -18,6 +67,8 @@ crate_types=(
 
 for t in "${crate_types[@]}"; do
     CRATE_NAME="$REPO_NAME-$t"
+
+    banner "Running $t CI"
 
     pushd "$(mktemp -d --suffix ".$CRATE_NAME")" || exit
 
@@ -44,3 +95,5 @@ for t in "${crate_types[@]}"; do
 
     popd || exit
 done
+
+banner "Success" last

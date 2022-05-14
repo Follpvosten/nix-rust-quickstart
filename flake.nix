@@ -20,6 +20,7 @@
         nativeBuildInputs = with pkgs; [
           cargo-generate
           file
+          nixpkgs-fmt
           shellcheck
           shfmt
         ];
