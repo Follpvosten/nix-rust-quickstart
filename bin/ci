@@ -37,10 +37,10 @@ for t in "${crate_types[@]}"; do
     fi
 
     # Ensure the flake isn't broken
-    direnv exec . nix flake check --print-build-logs
+    nix flake check
 
     # Run the actual tests
-    direnv exec . nix develop -c ci
+    direnv exec . ci
 
     popd || exit
 done
