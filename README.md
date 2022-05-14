@@ -21,13 +21,10 @@ A `cargo generate` template for starting a Rust project developed with Nix
     branch = "main"
     ```
 
-[cargo-home]: https://doc.rust-lang.org/cargo/guide/cargo-home.html
-
-[cargo-generate]: https://cargo-generate.github.io/cargo-generate/installation.html
-
 [cargo]: https://doc.rust-lang.org/cargo/getting-started/installation.html
-
 [cargo-shim]: https://or.computer.surgery/charles/cargo-shim
+[cargo-generate]: https://cargo-generate.github.io/cargo-generate/installation.html
+[cargo-home]: https://doc.rust-lang.org/cargo/guide/cargo-home.html
 
 ### Generating a project
 
