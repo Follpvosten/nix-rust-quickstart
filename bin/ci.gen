@@ -41,6 +41,7 @@ failure() {
 trap failure EXIT
 
 banner "Versions" first
+nix --version
 rustc --version
 cargo --version
 cargo fmt --version
