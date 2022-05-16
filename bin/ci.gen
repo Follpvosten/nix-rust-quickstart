@@ -43,7 +43,7 @@ trap failure EXIT
 banner "Versions" first
 rustc --version
 cargo --version
-rustfmt --version
+cargo fmt --version
 rustdoc --version
 cargo clippy -- --version
 nixpkgs-fmt --version 2>&1 | head -n1 || true
