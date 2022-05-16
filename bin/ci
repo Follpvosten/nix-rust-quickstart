@@ -56,7 +56,10 @@ banner "Linting"
 markdownlint .
 nixpkgs-fmt --check .
 shfmt -d -i 4 .
-find . -type f -exec file --mime-type {} \; |
+find . \
+    -type f \
+    -not -path './.git/*' \
+    -exec file --mime-type {} \; |
     grep 'text/x-shellscript' |
     cut -d: -f1 |
     xargs shellcheck
