@@ -1,4 +1,4 @@
-image: nixos/nix:2.8.0
+image: nixos/nix:2.9.1
 
 stages:
   - ci
