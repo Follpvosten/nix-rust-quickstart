@@ -5,4 +5,4 @@ target
 /.direnv
 
 # Nix artifacts
-/result
+/result*
