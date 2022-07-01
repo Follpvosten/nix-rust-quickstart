@@ -3,6 +3,7 @@
 #![warn(clippy::pedantic)]
 #![warn(clippy::as_conversions)]
 #![warn(clippy::dbg_macro)]
+#![warn(clippy::empty_structs_with_brackets)]
 #![warn(clippy::get_unwrap)]
 #![warn(clippy::if_then_some_else_none)]
 #![warn(clippy::let_underscore_must_use)]
