@@ -64,7 +64,6 @@ markdownlint --version
 
 banner "Linting"
 markdownlint -i target .
-shfmt -d -i 4 .
 find . \
     -type f \
     -not -path './target/*' \
@@ -72,7 +71,8 @@ find . \
     -exec file --mime-type {} \; |
     grep 'text/x-shellscript' |
     cut -d: -f1 |
-    xargs shellcheck
+    tr '\n' '\0' |
+    xargs -0 -Iscript sh -c "shfmt -d -i 4 'script' && shellcheck 'script'"
 
 nixpkgs-fmt --check .
 cargo fmt -- --check
