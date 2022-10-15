@@ -15,8 +15,6 @@
     in
     {
       devShells.default = pkgs.mkShell {
-        name = "nix-rust-quickstart";
-
         nativeBuildInputs = (with pkgs; [
           cargo-generate
           file
