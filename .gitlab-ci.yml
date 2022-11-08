@@ -13,6 +13,10 @@ before_script:
   # Enable flakes
   - "echo 'experimental-features = nix-command flakes' >> /etc/nix/nix.conf"
 
+  # Add nix-community binary cache
+  - "echo 'extra-substituters = https://nix-community.cachix.org' >> /etc/nix/nix.conf"
+  - "echo 'extra-trusted-public-keys = nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=' >> /etc/nix/nix.conf"
+
   # Add computer surgery binary cache
   - "echo 'extra-substituters = https://nix.computer.surgery' >> /etc/nix/nix.conf"
   - "echo 'extra-trusted-public-keys = nix.computer.surgery-0:u7+795vebd4P6yJsU7IDfQYjmERNvvvLd85RPVfBj4I=' >> /etc/nix/nix.conf"
