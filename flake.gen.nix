@@ -65,11 +65,7 @@
           engage.packages.${system}.default
           devToolchain
         ] ++ (with pkgs; [
-          file
-          ncurses
           nixpkgs-fmt
-          shellcheck
-          shfmt
         ]) ++ (with pkgs.nodePackages; [
           markdownlint-cli
         ]);
