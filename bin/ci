@@ -103,7 +103,7 @@ for t in "${crate_types[@]}"; do
     nix flake check
 
     # Run the actual tests
-    direnv exec . ci
+    direnv exec . engage
 
     popd || exit
 done

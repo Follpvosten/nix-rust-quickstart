@@ -4,8 +4,10 @@ set -euo pipefail
 
 cleanup() {
     if [[ "${status:-1}" -eq 0 ]]; then
-        # Delete ourself
-        rm "$(git rev-parse --show-toplevel)/bin/init"
+        # Delete ourself and the containing directory since there's nothing else
+        # in it
+        REPO_ROOT="$(git rev-parse --show-toplevel)"
+        rm -r "${REPO_ROOT:?}/bin"
 
         # Add the generated lockfile, remove `./bin/init`
         git add -A

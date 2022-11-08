@@ -12,6 +12,8 @@
       url = "github:nix-community/naersk";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    engage.url = "git+https://or.computer.surgery/charles/engage";
   };
 
   outputs =
@@ -21,6 +23,7 @@
 
     , fenix
     , naersk
+    , engage
     }: flake-utils.lib.eachDefaultSystem (system:
     let
       pkgs = nixpkgs.legacyPackages.${system};
@@ -59,6 +62,7 @@
 
         # Development tools
         nativeBuildInputs = [
+          engage.packages.${system}.default
           devToolchain
         ] ++ (with pkgs; [
           file
