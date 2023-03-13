@@ -1,0 +1,3 @@
+# TODO: remove this when it becomes the default (1.70.0)
+[registries.crates-io]
+protocol = "sparse"
