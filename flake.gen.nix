@@ -25,6 +25,12 @@
     }: flake-utils.lib.eachDefaultSystem (system:
     let
       pkgs = nixpkgs.legacyPackages.${system};
+      stdenv =
+        if pkgs.stdenv.isLinux then
+          pkgs.stdenvAdapters.useMoldLinker pkgs.stdenv
+        else
+          pkgs.stdenv;
+
       mkToolchain = fenix.packages.${system}.combine;
 
       toolchain = fenix.packages.${system}.stable;
@@ -50,9 +56,11 @@
     {
       packages.default = builder {
         src = ./.;
+
+        inherit stdenv;
       };
 
-      devShells.default = pkgs.mkShell {
+      devShells.default = (pkgs.mkShell.override { inherit stdenv; }) {
         # Rust Analyzer needs to be able to find the path to default crate
         # sources, and it can read this environment variable to do so. The
         # `rust-src` component is required in order for this to work.
