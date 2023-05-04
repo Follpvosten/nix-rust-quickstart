@@ -8,9 +8,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    naersk = {
-      url = "github:nix-community/naersk";
+    crane = {
+      url = "github:ipetkov/crane";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
     };
   };
 
@@ -20,7 +21,7 @@
     , flake-utils
 
     , fenix
-    , naersk
+    , crane
     }: flake-utils.lib.eachDefaultSystem (system:
     let
       pkgs = nixpkgs.legacyPackages.${system};
@@ -42,12 +43,12 @@
         # Always use nightly rustfmt because most of its options are unstable
         fenix.packages.${system}.latest.rustfmt
       ]);
+
+      builder =
+        ((crane.mkLib pkgs).overrideToolchain buildToolchain).buildPackage;
     in
     {
-      packages.default = (pkgs.callPackage naersk {
-        cargo = buildToolchain;
-        rustc = buildToolchain;
-      }).buildPackage {
+      packages.default = builder {
         src = ./.;
       };
 
