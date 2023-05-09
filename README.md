@@ -8,6 +8,11 @@ A `cargo generate` template for starting a Rust project developed with Nix
 
 ### Setup
 
+Follow either the **Repeated use** or **One-off use** sections, then proceed to
+the **Using the generated project** section.
+
+#### Repeated use
+
 1. Install [`cargo`][cargo] (or [`cargo-shim`][cargo-shim] if you don't want to
    install real cargo)
 
@@ -21,15 +26,28 @@ A `cargo generate` template for starting a Rust project developed with Nix
     branch = "main"
     ```
 
+After following those steps, you can do the following step at any time to
+generate a new project:
+
+1. Run the following command (add `--lib` if you're making a library) and follow
+   the prompts
+
+   ```sh
+   cargo generate nix
+   ```
+
 [cargo]: https://doc.rust-lang.org/cargo/getting-started/installation.html
 [cargo-shim]: https://or.computer.surgery/charles/cargo-shim
 [cargo-generate]: https://cargo-generate.github.io/cargo-generate/installation.html
 [cargo-home]: https://doc.rust-lang.org/cargo/guide/cargo-home.html
 
-### Generating a project
+#### One-off use
 
-1. Run `cargo generate nix` (add `--lib` if you're making a library) and follow
-   the prompts
+1. Run the following command (add `--lib` if you're making a library)
+
+   ```sh
+   nix shell nixpkgs#cargo nixpkgs#cargo-generate -c cargo generate https://or.computer.surgery/charles/nix-rust-quickstart
+   ```
 
 ### Using the generated project
 
