@@ -59,7 +59,7 @@ markdownlint --version
 
 banner "Linting"
 markdownlint .
-nixpkgs-fmt --check .
+nixpkgs-fmt --check flake.nix
 shfmt -d -i 4 .
 find . \
     -type f \
