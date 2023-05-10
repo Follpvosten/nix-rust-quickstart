@@ -39,8 +39,11 @@ fi
 # Make Nix recognize the files
 git add -A
 
-# Generate the lockfile
+# Generate the nix lockfile
 nix flake lock
+
+# Generate the rust lockfile
+nix develop --command cargo generate-lockfile
 
 # Allow our `.envrc`
 direnv allow
