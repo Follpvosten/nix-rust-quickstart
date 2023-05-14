@@ -90,6 +90,7 @@ for t in "${crate_types[@]}"; do
         --path "$REPO_ROOT" \
         --name "$CRATE_NAME" \
         --define "short_description=$CRATE_NAME CI project" \
+        --define "use_default_licensing=true" \
         --"$t"
 
     # Test the init script

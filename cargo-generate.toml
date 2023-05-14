@@ -24,6 +24,11 @@ post = [
 type = "string"
 prompt = "Short description"
 
+[placeholders.use_default_licensing]
+type = "bool"
+prompt = "Use the default licensing of `MIT OR Apache-2.0`"
+default = true
+
 [conditional.'crate_type == "lib"']
 ignore = [ "src/main.rs" ]
 

@@ -61,9 +61,9 @@ generate a new project:
 
 4. Develop your new Rust project with Nix!
 
-## Licensing of generated projects
+### Licensing of generated projects
 
-The default licensing for generated projects is `MIT OR Apache-2.0`. However,
-these are just defaults. Whoever uses this template to generate a project holds
-copyright over the project they generated and is free to choose how it is
-licensed.
+Whoever uses this template to generate a project holds copyright over the
+project they generated and is free to choose how it is licensed. For convenience
+only, there is an option to use the licensing of `MIT OR Apache-2.0`, which is
+very common.
