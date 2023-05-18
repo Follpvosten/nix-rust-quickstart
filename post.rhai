@@ -10,4 +10,8 @@ if !variable::get("use_default_licensing") {
     file::delete("LICENSE-MIT.md");
 }
 
-print("NOTE: remember to read and run `./bin/init` to finish initial setup!");
+let msg = "NOTE: remember to run `cd "
+    + variable::get("project-name")
+    + "` then read and run `./bin/init` to finish initial setup!";
+
+print(msg);
