@@ -18,6 +18,7 @@
 #![warn(clippy::string_add)]
 #![warn(clippy::string_slice)]
 #![warn(clippy::string_to_string)]
+#![warn(clippy::tests_outside_test_module)]
 #![warn(clippy::undocumented_unsafe_blocks)]
 #![warn(clippy::unneeded_field_pattern)]
 #![warn(clippy::unseparated_literal_suffix)]
