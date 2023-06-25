@@ -72,6 +72,7 @@ name = "cargo-doc"
 group = "lints"
 script = """
 RUSTDOCFLAGS="-D warnings" cargo doc \
+    --workspace \
     --no-deps \
     --document-private-items \
     --color always
@@ -80,9 +81,9 @@ RUSTDOCFLAGS="-D warnings" cargo doc \
 [[task]]
 name = "cargo-clippy"
 group = "lints"
-script = "cargo clippy --color=always -- -D warnings"
+script = "cargo clippy --workspace --color=always -- -D warnings"
 
 [[task]]
 name = "cargo"
 group = "tests"
-script = "cargo test --color=always -- --color=always"
+script = "cargo test --workspace --color=always -- --color=always"
