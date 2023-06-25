@@ -65,7 +65,7 @@ script = "nixpkgs-fmt --check ."
 [[task]]
 name = "cargo-fmt"
 group = "lints"
-script = "cargo fmt -- --color=always --check"
+script = "cargo fmt --check -- --color=always"
 
 [[task]]
 name = "cargo-doc"
