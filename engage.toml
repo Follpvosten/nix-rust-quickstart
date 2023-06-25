@@ -36,7 +36,7 @@ group = "versions"
 script = "rustdoc --version"
 
 [[task]]
-name = "cargo clippy"
+name = "cargo-clippy"
 group = "versions"
 script = "cargo clippy -- --version"
 
@@ -63,12 +63,12 @@ group = "lints"
 script = "nixpkgs-fmt --check ."
 
 [[task]]
-name = "rustfmt"
+name = "cargo-fmt"
 group = "lints"
 script = "cargo fmt -- --color=always --check"
 
 [[task]]
-name = "rustdoc"
+name = "cargo-doc"
 group = "lints"
 script = """
 RUSTDOCFLAGS="-D warnings" cargo doc \
@@ -78,7 +78,7 @@ RUSTDOCFLAGS="-D warnings" cargo doc \
 """
 
 [[task]]
-name = "clippy"
+name = "cargo-clippy"
 group = "lints"
 script = "cargo clippy --color=always -- -D warnings"
 
