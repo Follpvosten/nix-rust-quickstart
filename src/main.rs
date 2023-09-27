@@ -13,6 +13,7 @@
 #![warn(clippy::rc_buffer)]
 #![warn(clippy::rc_mutex)]
 #![warn(clippy::redundant_feature_names)]
+#![warn(clippy::ref_patterns)]
 #![warn(clippy::rest_pat_in_fully_bound_structs)]
 #![warn(clippy::str_to_string)]
 #![warn(clippy::string_add)]
