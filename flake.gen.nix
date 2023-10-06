@@ -61,10 +61,12 @@
       };
 
       devShells.default = (pkgs.mkShell.override { inherit stdenv; }) {
-        # Rust Analyzer needs to be able to find the path to default crate
-        # sources, and it can read this environment variable to do so. The
-        # `rust-src` component is required in order for this to work.
-        RUST_SRC_PATH = "${devToolchain}/lib/rustlib/src/rust/library";
+        env = {
+          # Rust Analyzer needs to be able to find the path to default crate
+          # sources, and it can read this environment variable to do so. The
+          # `rust-src` component is required in order for this to work.
+          RUST_SRC_PATH = "${devToolchain}/lib/rustlib/src/rust/library";
+        };
 
         # Development tools
         nativeBuildInputs = [
