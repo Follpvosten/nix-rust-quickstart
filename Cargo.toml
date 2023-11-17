@@ -46,9 +46,6 @@ version = "0.1.0"
 edition = "2021"
 {%- if use_default_licensing %}
 license = "MIT OR Apache-2.0"{% endif %}
-authors = [
-    "{{authors}}",
-]
 
 [lints]
 workspace = true
