@@ -25,6 +25,9 @@
         ]) ++ (with pkgs.nodePackages; [
           markdownlint-cli
         ]);
+
+        # HACK: <https://github.com/NixOS/nix/issues/8355#issuecomment-1551712655>
+        shellHook = "unset TMPDIR";
       };
 
       checks = {
