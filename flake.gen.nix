@@ -1,15 +1,15 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
+    flake-utils.url = "github:numtide/flake-utils?ref=main";
 
     fenix = {
-      url = "github:nix-community/fenix";
+      url = "github:nix-community/fenix?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     crane = {
-      url = "github:ipetkov/crane";
+      url = "github:ipetkov/crane?ref=master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
