@@ -15,7 +15,7 @@
     in
     {
       devShells.default = pkgs.mkShell {
-        nativeBuildInputs = (with pkgs; [
+        packages = (with pkgs; [
           cargo-generate
           file
           ncurses
@@ -28,10 +28,6 @@
 
         # HACK: <https://github.com/NixOS/nix/issues/8355#issuecomment-1551712655>
         shellHook = "unset TMPDIR";
-      };
-
-      checks = {
-        devShellsDefault = self.devShells.${system}.default;
       };
     });
 }
