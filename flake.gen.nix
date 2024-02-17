@@ -77,10 +77,5 @@
           markdownlint-cli
         ]);
       };
-
-      checks = {
-        packagesDefault = self.packages.${system}.default;
-        devShellsDefault = self.devShells.${system}.default;
-      };
     });
 }
