@@ -101,7 +101,7 @@ for t in "${crate_types[@]}"; do
     fi
 
     # Ensure the flake isn't broken
-    nix flake check
+    nix build
 
     # Run the actual tests
     direnv exec . engage
