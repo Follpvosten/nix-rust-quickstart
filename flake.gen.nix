@@ -68,7 +68,7 @@
         };
 
         # Development tools
-        nativeBuildInputs = [
+        packages = [
           devToolchain
         ] ++ (with pkgs; [
           engage
