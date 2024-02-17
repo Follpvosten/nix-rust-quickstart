@@ -67,7 +67,6 @@
           RUST_SRC_PATH = "${devToolchain}/lib/rustlib/src/rust/library";
         };
 
-        # Development tools
         packages = [
           devToolchain
         ] ++ (with pkgs; [
