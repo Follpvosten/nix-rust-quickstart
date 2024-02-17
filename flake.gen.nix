@@ -42,6 +42,7 @@
       devToolchain = mkToolchain (with toolchain; [
         cargo
         clippy
+        llvm-tools
         rust-src
         rustc
 
@@ -70,6 +71,7 @@
         packages = [
           devToolchain
         ] ++ (with pkgs; [
+          cargo-llvm-cov
           engage
           nixpkgs-fmt
         ]) ++ (with pkgs.nodePackages; [
