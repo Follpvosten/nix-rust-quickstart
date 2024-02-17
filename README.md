@@ -13,8 +13,8 @@ the **Using the generated project** section.
 
 #### Repeated use
 
-1. Install [`cargo`][cargo] (or [`cargo-shim`][cargo-shim] if you don't want to
-   install real cargo)
+1. Install [`cargo`][cargo] (or [`cargo-plugin-runner`][cargo-plugin-runner] if
+   you don't want to install real cargo)
 
 2. Install [`cargo-generate`][cargo-generate]
 
@@ -37,7 +37,7 @@ generate a new project:
    ```
 
 [cargo]: https://doc.rust-lang.org/cargo/getting-started/installation.html
-[cargo-shim]: https://or.computer.surgery/charles/cargo-shim
+[cargo-plugin-runner]: https://or.computer.surgery/charles/cargo-plugin-runner
 [cargo-generate]: https://cargo-generate.github.io/cargo-generate/installation.html
 [cargo-home]: https://doc.rust-lang.org/cargo/guide/cargo-home.html
 
