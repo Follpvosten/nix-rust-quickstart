@@ -12,6 +12,7 @@ unused_tuple_struct_fields = "warn"
 
 [workspace.lints.clippy]
 pedantic = "warn"
+
 as_conversions = "warn"
 dbg_macro = "warn"
 empty_structs_with_brackets = "warn"
