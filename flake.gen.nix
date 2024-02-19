@@ -14,25 +14,18 @@
     };
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , flake-utils
-
-    , fenix
-    , crane
-    }: flake-utils.lib.eachDefaultSystem (system:
+  outputs = inputs: inputs.flake-utils.lib.eachDefaultSystem (system:
     let
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
       stdenv =
         if pkgs.stdenv.isLinux then
           pkgs.stdenvAdapters.useMoldLinker pkgs.stdenv
         else
           pkgs.stdenv;
 
-      mkToolchain = fenix.packages.${system}.combine;
+      mkToolchain = inputs.fenix.packages.${system}.combine;
 
-      toolchain = fenix.packages.${system}.stable;
+      toolchain = inputs.fenix.packages.${system}.stable;
 
       buildToolchain = mkToolchain (with toolchain; [
         cargo
@@ -47,11 +40,12 @@
         rustc
 
         # Always use nightly rustfmt because most of its options are unstable
-        fenix.packages.${system}.latest.rustfmt
+        inputs.fenix.packages.${system}.latest.rustfmt
       ]);
 
-      builder =
-        ((crane.mkLib pkgs).overrideToolchain buildToolchain).buildPackage;
+      builder = (
+        (inputs.crane.mkLib pkgs).overrideToolchain buildToolchain
+      ).buildPackage;
     in
     {
       packages.default = builder {

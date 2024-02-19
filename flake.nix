@@ -4,14 +4,9 @@
     flake-utils.url = "github:numtide/flake-utils?ref=main";
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , flake-utils
-    ,
-    }: flake-utils.lib.eachDefaultSystem (system:
+  outputs = inputs: inputs.flake-utils.lib.eachDefaultSystem (system:
     let
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
     in
     {
       devShells.default = pkgs.mkShell {
