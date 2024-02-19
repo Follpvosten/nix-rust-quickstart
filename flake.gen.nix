@@ -2,6 +2,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils?ref=main";
+    nix-filter.url = "github:numtide/nix-filter?ref=main";
 
     fenix = {
       url = "github:nix-community/fenix?ref=main";
@@ -49,7 +50,15 @@
     in
     {
       packages.default = builder {
-        src = ./.;
+        src = let filter = inputs.nix-filter.lib; in filter {
+          root = ./.;
+          include = [
+            "Cargo.lock"
+            "Cargo.toml"
+            "README.md"
+            "src"
+          ];
+        };
 
         inherit stdenv;
       };
