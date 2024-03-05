@@ -13,7 +13,7 @@ cleanup() {
         git add -A
 
         # Make a first commit
-        git commit -m "initial commit"
+        git commit -m "start the project"
 
         # Output very clear message that it worked
         echo "Success! Have fun with your new project!"
