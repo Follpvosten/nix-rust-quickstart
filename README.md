@@ -22,7 +22,7 @@ the **Using the generated project** section.
 
     ```toml
     [favorites.nix]
-    git = "https://or.computer.surgery/charles/nix-rust-quickstart"
+    git = "https://gitlab.computer.surgery/charles/nix-rust-quickstart"
     branch = "main"
     ```
 
@@ -37,7 +37,7 @@ generate a new project:
    ```
 
 [cargo]: https://doc.rust-lang.org/cargo/getting-started/installation.html
-[cargo-plugin-runner]: https://or.computer.surgery/charles/cargo-plugin-runner
+[cargo-plugin-runner]: https://gitlab.computer.surgery/charles/cargo-plugin-runner
 [cargo-generate]: https://cargo-generate.github.io/cargo-generate/installation.html
 [cargo-home]: https://doc.rust-lang.org/cargo/guide/cargo-home.html
 
@@ -46,7 +46,7 @@ generate a new project:
 1. Run the following command (add `--lib` if you're making a library)
 
    ```sh
-   nix shell nixpkgs#cargo nixpkgs#cargo-generate -c cargo generate https://or.computer.surgery/charles/nix-rust-quickstart
+   nix shell nixpkgs#cargo nixpkgs#cargo-generate -c cargo generate https://gitlab.computer.surgery/charles/nix-rust-quickstart
    ```
 
 ### Using the generated project
