@@ -46,8 +46,6 @@ nix --version
 echo -n "direnv "
 direnv --version
 
-nixpkgs-fmt --version 2>&1 | head -n1 || true
-
 echo -n "shfmt "
 shfmt -version
 
@@ -59,7 +57,6 @@ markdownlint --version
 
 banner "Linting"
 markdownlint .
-nixpkgs-fmt --check flake.nix
 shfmt -d -i 4 .
 find . \
     -type f \

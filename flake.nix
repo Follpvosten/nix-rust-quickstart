@@ -14,7 +14,6 @@
           cargo-generate
           file
           ncurses
-          nixpkgs-fmt
           shellcheck
           shfmt
         ]) ++ (with pkgs.nodePackages; [

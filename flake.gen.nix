@@ -68,7 +68,6 @@
         ] ++ (with pkgs; [
           cargo-llvm-cov
           engage
-          nixpkgs-fmt
         ]) ++ (with pkgs.nodePackages; [
           markdownlint-cli
         ]);

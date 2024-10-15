@@ -41,13 +41,6 @@ group = "versions"
 script = "cargo clippy -- --version"
 
 [[task]]
-name = "nixpkgs-fmt"
-group = "versions"
-script = "nixpkgs-fmt --version 2> /dev/null"
-# This always exits 1 for some reason
-ignore = [ 1 ]
-
-[[task]]
 name = "markdownlint"
 group = "versions"
 script = "markdownlint --version"
@@ -56,11 +49,6 @@ script = "markdownlint --version"
 name = "markdownlint"
 group = "lints"
 script = "markdownlint -i target ."
-
-[[task]]
-name = "nixpkgs-fmt"
-group = "lints"
-script = "nixpkgs-fmt --check ."
 
 [[task]]
 name = "cargo-fmt"
