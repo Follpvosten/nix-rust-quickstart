@@ -5,19 +5,8 @@ cargo_generate_version = ">=0.12"
 
 ignore = [
     ".direnv",
-    ".envrc",
     ".git",
-    ".gitignore",
-    ".gitlab-ci.yml",
-    "README.md",
-    "bin/ci",
     "flake.lock",
-    "flake.nix",
-]
-
-[hooks]
-post = [
-    "post.rhai",
 ]
 
 [placeholders.short_description]
